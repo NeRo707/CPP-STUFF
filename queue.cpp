@@ -1,59 +1,59 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Queue {
-  private:
-    int front;
-  int rear;
-  int arr[5];
-
-  public:
-    Queue() {
-      front = -1;
-      rear = -1;
+class Queue { 
+  private: // private data members
+    int front; // front of the queue
+  int rear; // index of the last element in the queue
+  int arr[5]; // array to store the queue elements
+  
+  public: // public data members
+    Queue() { // default constructor
+      front = -1; // front is -1 
+      rear = -1; // rear is -1 
       for (int i = 0; i < 5; i++) {
-        arr[i] = 0;
+        arr[i] = 0; // set all elements to 0 
       }
-    }
-  bool isEmpty() {
+    } // constructor for queue class 
+  bool isEmpty() {// checks if the queue is empty
     if (front == -1 && rear == -1)
-      return true;
+      return true; // queue is empty 
     else
-      return false;
+      return false; // queue is not empty
   }
-  bool isFull() {
+  bool isFull() { // check if queue is full or not 
     if (rear == 4)
       return true;
     else
       return false;
   }
-  void enqueue(int val) {
+  void enqueue(int val) { // add an element to the queue
     if (isFull()) {
-      cout << "Queue full" << endl;
+      cout << "Queue full" << endl; // if queue is full then print error message 
       return;
-    } else if (isEmpty()) {
+    } else if (isEmpty()) { // if queue is empty then add an element to the queue
       rear = 0;
       front = 0;
-      arr[rear] = val;
+      arr[rear] = val; // if queue is empty then assign value to rear and front
     } else {
       rear++;
-      arr[rear] = val;
+      arr[rear] = val; // if queue is not empty then assign value to rear and front
     }
 
   }
 
-  int dequeue() {
+  int dequeue() { // remove an element from the queue
     int x = 0;
-    if (isEmpty()) {
+    if (isEmpty()) { // if queue is empty then print error message
       cout << "Queue is Empty" << endl;
       return x;
-    } else if (rear == front) {
+    } else if (rear == front) { // if queue is not empty then remove the front element
       x = arr[rear];
       rear = -1;
       front = -1;
       return x;
     } else {
-      cout << "front value: " << front << endl;
+      cout << "front value: " << front << endl; // if queue is not empty then print front value
       x = arr[front];
       arr[front] = 0;
       front++;
@@ -62,11 +62,11 @@ class Queue {
   }
 
   int count() {
-    return (rear - front + 1);
+    return (rear - front + 1); // count the number of elements in the queue
   }
 
   void display() {
-    cout << "All values in the Queue are - " << endl;
+    cout << "All values in the Queue are - " << endl; // print all values in the queue
     for (int i = 0; i < 5; i++) {
       cout << arr[i] << "  ";
     }
@@ -74,7 +74,7 @@ class Queue {
 
 };
 
-int main() {
+int main() { // main function
   Queue q1;
   int value, option;
 
@@ -83,14 +83,14 @@ int main() {
     cout << "1. Enqueue()" << endl;
     cout << "2. Dequeue()" << endl;
     cout << "3. isEmpty()" << endl;
-    cout << "4. isFull()" << endl;
+    cout << "4. isFull()" << endl;       
     cout << "5. count()" << endl;
     cout << "6. display()" << endl;
     cout << "7. Clear Screen" << endl << endl;
 
     cin >> option;
 
-    switch (option) {
+    switch (option) {  // switch statement to perform different operations
     case 0:
       break;
     case 1:
