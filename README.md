@@ -1,1 +1,1 @@
-# Simple STACK Data Structure in C++
+# Simple STACK DataStructure in C++
